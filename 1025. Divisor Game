@@ -1,0 +1,26 @@
+class Solution:
+    def divisorGame(self, N: int) -> bool:
+        cache = [None]*(N+1)
+        return self.helper(N, cache)
+        
+    def helper(self, n, cache):
+        if n <= 1:
+            return False
+        if cache[n] is not None:
+            return cache[n]
+        else:
+            for x in range(1, n+1):
+                if n%x == 0:
+ #Since both players are playing optimally then Alice wins on when BOB loses
+                    if not self.helper(n-x, cache):
+                        cache[n] = True
+                        return True
+                    else:
+                        cache[n] = False
+                        return False
+                
+                   
+                   
+#Since both players are playing optimally then Alice wins on when BOB loses
+                    
+        
