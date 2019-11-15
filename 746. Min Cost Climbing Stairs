@@ -1,3 +1,6 @@
+This is has a blend of dynamic programming and greedy algorithm. 
+Find the optimal cost to get to each postion on the stair case return the min cost of the between the last 2 steps.
+
 class Solution:
     def minCostClimbingStairs(self, cost: List[int]) -> int:
         for i in range(2, len(cost)):
@@ -5,4 +8,4 @@ class Solution:
         return min(cost[len(cost) - 1], cost[len(cost)-2])
         
         
- Using greedy algorithm and dynamic programming find the minimum cost to get each stair and return the
+ 
