@@ -1,0 +1,14 @@
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        buyingPrice = float('inf')
+        max_profit = 0
+        for price in prices:
+            daily_profit = price - buyingPrice
+            max_profit = max(max_profit, daily_profit)
+            buyingPrice = min(buyingPrice, price)
+        return max_profit
+
+        
+                    
+        
+        
