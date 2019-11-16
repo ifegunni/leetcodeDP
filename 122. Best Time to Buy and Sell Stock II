@@ -1,0 +1,18 @@
+This can be solved using greedy algorithm,consider how much profit is made each day and decide whether to sell of buy that day
+if profit is negative add 0 to maxProfit else add daily profit to maxProfit
+     
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        maxProfit = 0
+        temp = float("-inf")
+        cost = float("inf")
+        for price in prices:
+            dailyProfit = price - cost
+            if dailyProfit < 0:
+                maxProfit += 0
+                cost = price
+            else:
+                maxProfit += dailyProfit
+                cost = price
+        return maxProfit
+                
