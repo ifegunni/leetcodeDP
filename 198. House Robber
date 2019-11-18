@@ -40,3 +40,9 @@ class Solution:
             far = temp
         return Next
         
+       // Another solution
+        
+      rob, leave = 0, 0
+    for v in nums:
+        rob, leave = leave + v, max(rob, leave)
+    return max(rob, leave)
