@@ -1,0 +1,42 @@
+
+
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        if len(nums) == 0: #if no house were robbed the you stole nothing
+            return 0 
+        if len(nums) == 1: #if there is only one house to rob then that is all you gained 
+            return nums[0]
+        if len(nums) == 2: #but if there are 2 houses then you rob the house with the most money
+            return max(nums[0], nums[1])
+        
+        cache = [None] * len(nums)
+        cache[0] = nums[0]
+        cache[1] = max(nums[0], nums[1])
+        
+        for i in range(2, len(nums)):
+            cache[i] = max((cache[i-2] + nums[i]), cache[i-1]) //To rob a house we have to decide whether to stop at the house before our current house
+            or rob the the previous us
+        return max(cache[len(nums)-2], cache[len(nums)-1])
+        
+        
+        
+  class Solution:
+    def rob(self, nums: List[int]) -> int:
+        if len(nums) == 0:  #if no house were robbed the you stole nothing
+            return 0 
+            
+        if len(nums) == 1:  #if there is only one house to rob then that is all you gained 
+            return nums[0]
+            
+        if len(nums) == 2:  #but if there are 2 houses then you rob the house with the most money
+            return max(nums[0], nums[1])
+            
+        far = nums[0]  // amount of money that can be gained from robbing the first house
+        Next = max(nums[0], nums[1]) //amount of money we can gain up to the 2nd house 
+        
+        for i in range(2, len(nums)):
+            temp = Next 
+            Next = max(far + nums[i], Next)
+            far = temp
+        return Next
+        
